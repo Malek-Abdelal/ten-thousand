@@ -1,11 +1,7 @@
 import random
 class GameLogic :
     
-     
-
     @staticmethod
-    
-    
     def roll_dice(num_dice=6):
         """
         Rolls the six dice.
@@ -24,7 +20,6 @@ class GameLogic :
     
     
     @staticmethod
-    
     def calculate_score(dice):
         """
         Calculates the score for a roll of Dice10000.
@@ -83,13 +78,12 @@ class GameLogic :
 
         return score
    
-    
-    
-    
-    
-if __name__=="__main__":
+
+
+if __name__ == "__main__":
     game = GameLogic()
-    print(game.roll_dice(6))
+    roll_dice = game.roll_dice()
+    print(game.calculate_score(roll_dice))
     
     
     

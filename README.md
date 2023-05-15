@@ -2,7 +2,7 @@
 
 ## Project: Dice 10000 Game
 
-## Author:Malek Abdelal, Mohamad alshiyab, Ahmad falah 
+## Authors: Malek Abdelal, Mohamad alshiyab, Ahmad falah 
 
 ### How to run the application ?
 
