@@ -2,9 +2,19 @@
 
 We are going to create the game using codes from ChatGPT and edit them to get our specification.
 
-# Prompt : Add roll_dice static method to Game Logic class to return a tuple contain a result of dices in python
+------
 
-# Prompt : number of dices is depend on roll_dice arguments
+### Prompt 1 
+
+Add roll_dice static method to Game Logic class to returns a tuple contains the results of dices in python
+
+-----
+
+### Prompt 2  
+
+make the number of dices depends on roll_dice arguments
+
+- **Response :**
 
 Sure, here's an updated roll_dice method in the GameLogic class that takes an optional argument to specify the number of dice to roll:
 
@@ -34,9 +44,13 @@ print(dice_roll_3)  # e.g. (4, 2, 5)
 
 This will call the roll_dice method of the GameLogic class, passing in the number of dice to roll if desired, and assign the resulting tuple to the appropriate variable. You can then use the values in the tuple as needed.
 
--------------------------------------------------------------
+-------------
 
-# Prompt:generate for dice10000  game  calculate_score method takes a tuple as an input and calculate score for all rules in python
+### Prompt 3
+
+generate for dice 10000 game calculate_score method takes a tuple as an input and calculate score for all rules in python
+
+- **Response :**
 
 Sure, here's an updated calculate_score method for the Dice10000 game that calculates the score for all the rules:
 
@@ -89,6 +103,7 @@ def calculate_score(dice):
 
     return score
 ```
+
 This calculate_score method uses the dice_counts list to count the number of occurrences of each dice value, and then calculates the score for each of the game's rules.
 
 The method first calculates the score for ones, fives, and three-of-a-kind. It then calculates the score for four-of-a-kind, a straight, three pairs, a five-of-a-kind, and a six-of-a-kind, if applicable. Finally, the method returns the total score.
