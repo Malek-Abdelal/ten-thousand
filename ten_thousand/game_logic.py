@@ -50,7 +50,13 @@ class GameLogic :
         # Calculate the score for four-of-a-kind
         for value, count in enumerate(dice_counts, 1):
             if count >= 4:
-                score += value * 100
+                if value == 5:
+                    score += value * 100 - 50
+                elif value == 1:
+                    score += 900 
+                else :
+                    score += value * 100
+                
 
         # Calculate the score for a straight
         if all(dice_counts[i] == 1 for i in range(6)):
@@ -64,7 +70,9 @@ class GameLogic :
         if 5 in dice_counts:
             value = dice_counts.index(5) + 1
             if value == 1:
-                score += 2000
+                score += 900 
+            elif value == 5:
+                score += 450
             else:
                 score += value * 100
 
@@ -72,7 +80,9 @@ class GameLogic :
         if 6 in dice_counts:
             value = dice_counts.index(6) + 1
             if value == 1:
-                score +=2600
+                score += 1800
+            elif value == 5:
+                score += 900
             else:
                 score += value * 200
 
