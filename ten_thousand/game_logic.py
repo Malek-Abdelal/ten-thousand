@@ -2,7 +2,7 @@ import random
 class GameLogic :
     
     @staticmethod
-    def roll_dice(num_dice=6):
+    def roll_dice(num_dice = 6):
         """
         Rolls the six dice.
 
@@ -36,12 +36,12 @@ class GameLogic :
 
         # Calculate the score for ones, fives, and three-of-a-kind
         for value, count in enumerate(dice_counts, 1):
-            if count >= 3:
+            if count >= 3:                         #==   !!
                 if value == 1:
                     score += 1000
-                else:
+                else:               
                     score += value * 100
-                count -= 3
+                count -= 3                        ## why?
             if value == 1:
                 score += count * 100
             elif value == 5:
@@ -85,7 +85,7 @@ class GameLogic :
                 score += 900
             else:
                 score += value * 200
-
+        print(dice_counts)
         return score
    
 
