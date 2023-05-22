@@ -11,22 +11,22 @@ class Play(GameLogic):
         all_dice_scored_rounds = 0
 
 
-        print("Welcome to Ten Thousand")
+        print("Welcome to Ten Thousand Game")
         response = input("(y)es to play or (n)o to decline\n> ")
 
         if response.lower() == "y" or response.lower() == "yes":
             while True:
                 print(f"Starting round {round_number}")
-                print("Rolling 6 dice...")
+                print("Rolling 6 dice ...")
                 dice = [random.randint(1, 6) for _ in range(dice_remaining)]
                 print("***", " ".join(str(num) for num in dice), "***")
 
                 points = self.calculate_score(dice)
                 if points == 0:
                     print('''
-                          **************************************
-                          ** Zilch! No points for this round. **
-                          **************************************
+****************************************
+**        Zilch!!! Round over         **
+****************************************
                           ''')
                     round_number += 1
                     dice_remaining = 6
@@ -42,7 +42,6 @@ class Play(GameLogic):
                 dice_to_keep = []
                 invalid_input = False
 
-                # Check for invalid input or repeated values
                 for value in response:
                     if value not in map(str, dice):
                         print(f"Invalid input. The dice values are {', '.join(map(str, dice))}. Please try again.")
@@ -54,7 +53,7 @@ class Play(GameLogic):
                     continue
 
                 if len(dice_to_keep) > dice_remaining:
-                    print(f"You selected more dice than available. Please try again.")
+                    print(f"You have selected more dices than available, Please try again !")
                     continue
 
                 dice_remaining -= len(dice_to_keep)
@@ -62,15 +61,15 @@ class Play(GameLogic):
                 print(f"You have {points} unbanked points and {dice_remaining} dice remaining")
 
                 if dice_remaining == 0:
-                    print("All dice have scored. Rolling 6 new dice...")
+                    print("All dice have scored, Rolling 6 new dice...")
                     dice_remaining = 6
                     all_dice_scored_rounds += 1
                     if all_dice_scored_rounds >= 3:
-                        print("Hot dice! Rolling 6 new dice...")
+                        print("Hot dice! Rolling 6 new dice ...")
                         all_dice_scored_rounds = 0
 
                 if all_dice_scored_rounds > 2:
-                    print("You have scored all dice for 3 consecutive rounds. Starting a new game.")
+                    print("You have scored all dice for 3 consecutive rounds, Starting a new game.")
                     total_score = 0
                     round_number = 1
                     dice_remaining = 6
@@ -94,9 +93,9 @@ class Play(GameLogic):
                     return
                 
                 else:
-                    print("Invalid input. Please try again.")
+                    print("Invalid input, Please try again !")
         else:
-            print("OK. Maybe another time")
+            print("OK, Maybe another time")
 
 
 if __name__ == "__main__":
