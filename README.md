@@ -34,4 +34,4 @@ Adding some functionalities to the application :
 3. Handle **zilch**.
 
 
-[PR](https://github.com/Malek-Abdelal/ten-thousand/pull/1)
+[PR](https://github.com/Malek-Abdelal/ten-thousand/pull/3)
