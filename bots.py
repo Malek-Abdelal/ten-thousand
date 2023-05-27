@@ -100,6 +100,7 @@ class BaseBot(ABC):
             f"{cls.__name__}: {num_games} games played with average score of {mega_total // num_games}"
         )
 
+
 class NervousNellie(BaseBot):
     """NervousNellie banks the first roll always"""
     def _roll_bank_or_quit(self):
