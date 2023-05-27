@@ -1,15 +1,15 @@
 import random
-from game_logic import GameLogic
+# try:
+from ten_thousand.game_logic import GameLogic
+# except :
+#     from game_logic import GameLogic
+
+class Game() :
+    def play(self, round_num):
+        # player = GameLogic()
+        GameLogic.play_game(round_num)
 
 
-class Game() :  
-    def play(self):
-        player = GameLogic()
-        player.play_game()
-
-
-
-            
 if __name__ == "__main__":
-    new_game = Game()
-    new_game.play()
+    # new_game = Game()
+    GameLogic.play_game()
