@@ -16,8 +16,10 @@ class GameLogic :
             dice_values.append(random.randint(1, 6))
         return tuple(dice_values)
     
+    
     @staticmethod
     def calculate_score(dice):
+
         """
         Calculates the score for a roll of Dice10000.
         Parameters:
@@ -63,7 +65,7 @@ class GameLogic :
                 score += 450
             else:
                 score += value * 100
-        # Calculate the score for a six-of-a-kind
+
         if 6 in dice_counts:
             value = dice_counts.index(6) + 1
             if value == 1:
@@ -73,109 +75,11 @@ class GameLogic :
             else:
                 score += value * 200
         return score
-    
-    @staticmethod
-    def play_game(round_num):
-        
-        total_score = 0
-        round_number = 1
-        dice_remaining = 6
-        all_dice_scored_rounds = 0
-        points = 0
-        final_points = 0
-        print("Welcome to Ten Thousand")
-        print("(y)es to play or (n)o to decline")
-        response = input (">")
-        if response.lower() == "y" or response.lower() == "yes":
-            # while True and round_number == 1:                         ######
-            while True and round_number != round_num + 1:
 
-                if response.lower() == "y" or response.lower() == "yes" or dice_remaining == 6:
-                    print(f"Starting round {round_number}")
-                print(f"Rolling {dice_remaining} dice...")
-                dice = list(GameLogic.roll_dice(dice_remaining))
-                dice_output = "*** "
-                for num in dice:
-                    dice_output += f"{num} "
-                dice_output += "***"
-                print(dice_output)
-                points = GameLogic.calculate_score(dice)
-
-                if points == 0:
-                    print('''
-**************************************
-** Zilch! No points for this round. **
-**************************************
-                          ''')
-                    round_number += 1
-                    dice_remaining = 6
-                    print(f"Thanks for playing. You earned {final_points} points")
-                    continue
-                while True:
-                    print("Enter dice to keep, or (q)uit:")
-                    response = input(">")
-                    # print(f"You entered: {response}")
-                    if response.lower() == "q" or response.lower() == "quit" or response.lower() == "b":
-                        print(f"Thanks for playing. You earned {total_score} points")
-                        break
-                    dice_to_keep = []
-                    invalid_input = False
-                    removed_dices = dice[:]
-                    for value in response:
-                        if value in map(str, dice):
-                            dice.remove(int(value))
-                        elif value not in map(str, dice) or response == '' :
-                            print(f"Cheater!!! Or possibly made a typo...  Please try again.")
-                            dice = removed_dices
-                            print("***", " ".join(str(num) for num in dice), "***")
-                            invalid_input = True
-                            break
-                        dice_to_keep.append(int(value))
-                    if invalid_input:
-                        continue
-                    dice_remaining -= len(dice_to_keep)
-                    points = GameLogic.calculate_score(dice_to_keep)
-                    final_points += points
-                    print(f"You have {final_points} unbanked points and {dice_remaining} dice remaining")
-                    break
-                if response.lower() == "q" or response.lower() == "quit":
-                    break
-                if dice_remaining == 0:
-                    # print("All dice have scored. Rolling 6 new dice...")
-                    dice_remaining = 6
-                    all_dice_scored_rounds += 1
-                    if all_dice_scored_rounds >= 3:
-                        # print("Hot dice! Rolling 6 new dice...")
-                        all_dice_scored_rounds = 0
-                if all_dice_scored_rounds > 2:
-                    print("You have scored all dice for 3 consecutive rounds. Starting a new game.")
-                    print(f"Thanks for playing. You earned {total_score} points")
-                    break
-                print("(r)oll again, (b)ank your points or (q)uit:")                ########
-                response = input (">")
-                # response = input("(r)oll again, (b)ank your points or (q)uit:\n> ")
-                if response.lower() == "r" or response.lower() == "roll":
-                    total_score += points
-                    final_points = total_score
-                    continue
-                elif response.lower() == "b" or response.lower() == "bank":
-                    total_score += points
-                    print(f"You banked {final_points} points in round {round_number}")
-                    print(f"Total score is {total_score} points")
-                    round_number += 1
-                    final_points = 0       
-                    dice_remaining = 6
-                elif response.lower() == "q" or response.lower() == "quit":
-                    print(f"Thanks for playing. You earned {total_score} points")
-                    break
-                else:
-                    print(f"Thanks for playing. You earned {total_score} points")
-        else:
-            print("OK. Maybe another time")
-            # print(f"Thanks for playing. You earned {total_score} points")
 
     @staticmethod
     def validate_keepers(roll, keepers):
+
         roll, keepers = list(roll), list(keepers)
         for value in keepers:
             if value in roll:
@@ -184,30 +88,23 @@ class GameLogic :
                 return False
         return True
     
+
     @staticmethod
     def get_scorers(dice):
+
         all_dice_score = GameLogic.calculate_score(dice)
 
         if all_dice_score == 0 :
             return tuple()
-        
         scorers = []
 
         for i,value  in enumerate(dice):
-            sub_roll = dice[:i] + dice[i+1:] 
+            sub_roll = dice[:i] + dice[i+1:]
             sub_score = GameLogic.calculate_score(sub_roll)
-
-            if sub_score != all_dice_score :                 ########
+            if sub_score != all_dice_score :
                 scorers.append(value)
 
         return tuple(scorers)
     
-        
-if __name__ == "__main__":
-    game = GameLogic()
-    dice = game.roll_dice()
-    print(dice)
-    print(game.get_scorers(dice))
-    game.play_game()
-    # roll_dice = game.roll_dice()
-    # print(game.calculate_score(roll_dice))
+
+# if __name__ == "__main__":

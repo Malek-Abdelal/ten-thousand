@@ -6,14 +6,19 @@
 
 ### How to run the application ?
 
-- Make sure to install pytest package, then, write in terminal => pytest
-- Run in the terminal => python3 ten_thousand/game.py
+- Make sure to install pytest package, then, write in terminal => **pytest**
+- Run in the terminal => **python3 ten_thousand/game.py**
+
+### How to run version 4 ?
+
+- Make sure that you are in the root directory, then write in the terminal => **python3 bots.py**
 
 ------
 
 ### version 1
 
 Create 'GameLogic' class that has 2 main methods:
+
 1. **'roll_dice'** that rolls the six dice.
 2. **'calculate_score'** that takes a tuple containing the values of the six dice rolled and calculates the score for them.
 
@@ -33,5 +38,11 @@ Adding some functionalities to the application :
 2. Allow user to continue rolling with 6 new dice when all dice have scored in current turn.
 3. Handle **zilch**.
 
+------
 
-[PR](https://github.com/Malek-Abdelal/ten-thousand/pull/3)
+### version 4
+
+Connecting the game with a bot, and creating another bot to beat it.
+
+
+[PR](https://github.com/Malek-Abdelal/ten-thousand/pull/7)
